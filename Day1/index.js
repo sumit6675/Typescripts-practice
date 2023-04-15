@@ -29,7 +29,7 @@ function greetAllPersons(names) {
     names.forEach(function (name) { return console.log("Hello " + name); });
 }
 greetAllPersons(["sumit", "ramdas", "roshan", "savita"]);
-// Object Types
+//5. Object Types
 var personalDetails = {
     name: "sumit",
     age: 18,
@@ -37,3 +37,32 @@ var personalDetails = {
     hobbies: [10, "play"]
 };
 console.log(personalDetails);
+//6. Enum type
+var RoleNumber;
+(function (RoleNumber) {
+    RoleNumber[RoleNumber["Manager"] = 105] = "Manager";
+    RoleNumber[RoleNumber["HR"] = 201] = "HR";
+    RoleNumber[RoleNumber["JrDeveloper"] = 65] = "JrDeveloper";
+})(RoleNumber || (RoleNumber = {}));
+var srNo;
+(function (srNo) {
+    srNo[srNo["Manager"] = 0] = "Manager";
+    srNo[srNo["HR"] = 1] = "HR";
+    srNo[srNo["JrDeveloper"] = 2] = "JrDeveloper";
+})(srNo || (srNo = {}));
+var Role;
+(function (Role) {
+    Role["Manager"] = "Manager";
+    Role["HR"] = "HR";
+    Role["JrDeveloper"] = "JrDeveloper";
+})(Role || (Role = {}));
+//defauult it start with 0 , we can give any number, we can give any type as we want
+var personalDetailsForCompany = {
+    name: "sumit",
+    age: 18,
+    skills: ["coding", "problem solving"],
+    srNo: srNo.JrDeveloper,
+    role: Role.JrDeveloper,
+    roleNumber: RoleNumber.JrDeveloper
+};
+console.log(personalDetailsForCompany);

@@ -35,7 +35,7 @@ function greetAllPersons(names: string[]) {
 
 greetAllPersons(["sumit", "ramdas", "roshan", "savita"]);
 
-// Object Types
+//5. Object Types
 const personalDetails: {
   name: string; //string Type
   age: number; //Number Type
@@ -48,3 +48,40 @@ const personalDetails: {
   hobbies: [10, "play"],
 };
 console.log(personalDetails);
+
+//6. Enum type
+
+enum RoleNumber {
+  Manager = 105,
+  HR = 201,
+  JrDeveloper = 65,
+}
+enum srNo {
+  Manager,
+  HR,
+  JrDeveloper,
+}
+
+enum Role {
+  Manager = "Manager",
+  HR = "HR",
+  JrDeveloper = "JrDeveloper",
+}
+//defauult it start with 0 , we can give any number, we can give any type as we want
+
+const personalDetailsForCompany: {
+  name: string; //string Type
+  age: number; //Number Type
+  skills: string[]; //Array Type All strings,
+  srNo: number; //enum of defult type number
+  role: string; //enum of string type
+  roleNumber: number; //enum of number type explicitly
+} = {
+  name: "sumit",
+  age: 18,
+  skills: ["coding", "problem solving"],
+  srNo: srNo.JrDeveloper,
+  role: Role.JrDeveloper,
+  roleNumber: RoleNumber.JrDeveloper,
+};
+console.log(personalDetailsForCompany);
