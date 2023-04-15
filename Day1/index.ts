@@ -1,42 +1,28 @@
-//union type - if we are not conform about the type
-//if below example user take inputs from user and add condition if both input
-//is number then only add else concate the string with space between.
+//Functions Return Type
+//Function return number string or boolean type
+//if function not return anything then its type is void
 
-function conbine(input1: string | number, input2: string | number) {
-  if (typeof input1 === "number" && typeof input2 === "number") {
-    return input1 + input2;
-  } else {
-    return input1.toString() + " " + input2.toString();
-  }
+function sum(a: number, b: number): string {
+  // return a+b  give error because we want to return string type not number
+  return `The Sum Is : ${a + b}`;
 }
-console.log(conbine(5, 10));
-console.log(conbine("sumit", "chimkar"));
+console.log(sum(12, 13));
+//console.log(sum("sumit","chimkar")) give error
 
-//Literal type - if we are not conform about the type
-//if below example user take inputs from user and add condition if both input
-//is number then only add else concate the string with space between.
-//and if numbers are in string type then also add them
-//identify the condition and do task accordingly
-// using type aliases=string|number sae the time and space use can make our own aliases accoringly
-//for ex. type conbine_Condition="Both are strings and concate" | "Both are strings and add"
-//and use conbine_Condition insted of "Both are strings and concate" | "Both are strings and add"
-
-type aliases = string | number;
-
-function conbineAnother(
-  input1: aliases,
-  input2: aliases,
-  condition: "Both are strings and concate" | "Both are strings and add"
-) {
-  if (
-    (typeof input1 === "number" && typeof input2 === "number") ||
-    condition === "Both are strings and add"
-  ) {
-    return +input1 + +input2;
-  } else {
-    return input1.toString() + " " + input2.toString();
-  }
+function concate(a: string, b: string): string {
+  return `The Full Name is :${a} ${b}`; //here function return the string
 }
-console.log(conbineAnother(5, 10, "Both are strings and add"));
-console.log(conbineAnother("5", "10", "Both are strings and add"));
-console.log(conbineAnother("sumit", "chimkar", "Both are strings and concate"));
+console.log(concate("sumit", "chimkar"));
+
+function concateName(a: string, b: string): void {
+  console.log(`The Full Name is :${a} ${b}`); //here function return the nothing hence we use void return type
+}
+concate("sumit", "chimkar");
+
+//Now let asign function to different variable and restrict the type of arguments and return values
+
+// let sumTheNumber:(a:number,b:number)=>number=sum  
+//this line gives error because sum return string ans we assign to number type return function
+//correct way is:
+let sumTheNumber:(a:number,b:number)=>string=sum  
+console.log(sumTheNumber(12,13))

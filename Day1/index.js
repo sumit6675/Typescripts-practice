@@ -1,25 +1,23 @@
-//union type - if we are not conform about the type
-//if below example user take inputs from user and add condition if both input
-//is number then only add else concate the string with space between.
-function conbine(input1, input2) {
-    if (typeof input1 === "number" && typeof input2 === "number") {
-        return input1 + input2;
-    }
-    else {
-        return input1.toString() + " " + input2.toString();
-    }
+//Functions Return Type
+//Function return number string or boolean type
+//if function not return anything then its type is void
+function sum(a, b) {
+    // return a+b  give error because we want to return string type not number
+    return "The Sum Is : ".concat(a + b);
 }
-console.log(conbine(5, 10));
-console.log(conbine("sumit", "chimkar"));
-function conbineAnother(input1, input2, condition) {
-    if ((typeof input1 === "number" && typeof input2 === "number") ||
-        condition === "Both are strings and add") {
-        return +input1 + +input2;
-    }
-    else {
-        return input1.toString() + " " + input2.toString();
-    }
+console.log(sum(12, 13));
+//console.log(sum("sumit","chimkar")) give error
+function concate(a, b) {
+    return "The Full Name is :".concat(a, " ").concat(b); //here function return the string
 }
-console.log(conbineAnother(5, 10, "Both are strings and add"));
-console.log(conbineAnother("5", "10", "Both are strings and add"));
-console.log(conbineAnother("sumit", "chimkar", "Both are strings and concate"));
+console.log(concate("sumit", "chimkar"));
+function concateName(a, b) {
+    console.log("The Full Name is :".concat(a, " ").concat(b)); //here function return the nothing hence we use void return type
+}
+concate("sumit", "chimkar");
+//Now let asign function to different variable and restrict the type of arguments and return values
+// let sumTheNumber:(a:number,b:number)=>number=sum  
+//this line gives error because sum return string ans we assign to number type return function
+//correct way is:
+var sumTheNumber = sum;
+console.log(sumTheNumber(12, 13));
