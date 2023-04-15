@@ -1,87 +1,13 @@
-//1. string type
-function greet(name: string) {
-  console.log(`Hello ${name}`);
-}
-greet("sumit");
+//union type - if we are not conform about the type
+//if below example user take inputs from user and add condition if both input
+//is number then only add else concate the string with space between.
 
-//2. Number type
-function add(num1: number, num2: number) {
-  console.log(num1 + num2);
-}
-add(10, 20);
-
-//3.Boolean Type
-function greetperson(name: string, isValidPerson: boolean) {
-  if (isValidPerson) {
-    console.log("Hello " + name);
+function conbine(input1: string | number, input2: string | number) {
+  if (typeof input1 === "number" && typeof input2 === "number") {
+    return input1 + input2;
   } else {
-    console.log("Invalid Name " + name);
+    return input1.toString() + " " + input2.toString();
   }
 }
-const Name = "sumit";
-const isValidPerson = false;
-greetperson(Name, isValidPerson);
-
-//4.Arrays types
-
-function getSum(numbers: number[]) {
-  console.log(numbers.reduce((a, b) => a + b));
-}
-getSum([1, 2, 3, 4, 5, 6]);
-
-function greetAllPersons(names: string[]) {
-  names.forEach((name) => console.log("Hello " + name));
-}
-
-greetAllPersons(["sumit", "ramdas", "roshan", "savita"]);
-
-//5. Object Types
-const personalDetails: {
-  name: string; //string Type
-  age: number; //Number Type
-  skills: string[]; //Array Type All strings
-  hobbies: [number, string]; //Tuple Type arr[0] is number and arr[1] is string
-} = {
-  name: "sumit",
-  age: 18,
-  skills: ["coding", "problem solving"],
-  hobbies: [10, "play"],
-};
-console.log(personalDetails);
-
-//6. Enum type
-
-enum RoleNumber {
-  Manager = 105,
-  HR = 201,
-  JrDeveloper = 65,
-}
-enum srNo {
-  Manager,
-  HR,
-  JrDeveloper,
-}
-
-enum Role {
-  Manager = "Manager",
-  HR = "HR",
-  JrDeveloper = "JrDeveloper",
-}
-//defauult it start with 0 , we can give any number, we can give any type as we want
-
-const personalDetailsForCompany: {
-  name: string; //string Type
-  age: number; //Number Type
-  skills: string[]; //Array Type All strings,
-  srNo: number; //enum of defult type number
-  role: string; //enum of string type
-  roleNumber: number; //enum of number type explicitly
-} = {
-  name: "sumit",
-  age: 18,
-  skills: ["coding", "problem solving"],
-  srNo: srNo.JrDeveloper,
-  role: Role.JrDeveloper,
-  roleNumber: RoleNumber.JrDeveloper,
-};
-console.log(personalDetailsForCompany);
+console.log(conbine(5, 10));
+console.log(conbine("sumit", "chimkar"));
